@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "credit-report-ui": {
+    "dashboard-ui": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/credit-report-ui",
+            "outputPath": "dist/dashboard-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "credit-report-ui:build"
+            "browserTarget": "dashboard-ui:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "credit-report-ui:build:production"
+              "browserTarget": "dashboard-ui:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "credit-report-ui:build"
+            "browserTarget": "dashboard-ui:build"
           }
         },
         "test": {
@@ -116,16 +116,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "credit-report-ui:serve"
+            "devServerTarget": "dashboard-ui:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "credit-report-ui:serve:production"
+              "devServerTarget": "dashboard-ui:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "credit-report-ui"
+  "defaultProject": "dashboard-ui"
 }
