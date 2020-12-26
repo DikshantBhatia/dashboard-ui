@@ -1,3 +1,34 @@
-<div echarts [options]="chartOptions" class="demo-chart">
-
-</div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item  (click)="currentVisibleChartType = chartType.LINE">Line Chart</a>
+      <a mat-list-item  (click)="currentVisibleChartType = chartType.BAR">Bar Chart</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Dashboard</span>
+      <span class="spacer"></span>
+      <button mat-icon-button aria-label="Logout" title="Logout" (click)="logout()">
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </mat-toolbar>
+   <!-- app content can be added here through routes or components -->
+    <div class="dash-content">
+      <app-chart [apiUrl]="loanAmountByYearApiUrl" [chartType]="chartType.LINE" [hidden]="currentVisibleChartType === chartType.BAR"></app-chart>
+      <app-chart [apiUrl]="loanAmountByYearApiUrl" [chartType]="chartType.BAR"  [hidden]="currentVisibleChartType === chartType.LINE" ></app-chart>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
