@@ -1,6 +1,6 @@
 # Dashboard UI
 
-User Interface to view the the dashboard app. User needs to signup | signin to view the reports.
+User Interface to view the dashboard app. User needs to signup | signin to view the reports.
 App currently displays the chart to view the average loan amount taken by the companies over a span of time.   
 
 
